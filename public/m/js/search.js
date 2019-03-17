@@ -3,10 +3,10 @@ $(function ($) {
   $('.lt_search input').val('');
   $('.lt_history').html(template('historyTemplate',{keyWord: getSearchData()}));
 
-  // 点击搜索按钮储存关键词
-  $('.lt_search a').on('tap',function () {
-    var key = $.trim($('.lt_search input').val());
+  // 注册委托事件
+  $('body').on('tap','.search_btn', function () {
     // 跳转去搜索列表页并带上关键字并判断当用户没有输入关键字时提示用户'请输入关键字'
+    var key = $.trim($('.lt_search input').val());
     if (!key) {
       mui.toast('请输入关键字');
       return false;
@@ -16,27 +16,21 @@ $(function ($) {
     addSearchData(key);
 
     // 携带关键字跳转
-    // location.href = 'searchList.html?key='+ key;
-  });
-
-  // 点击清除记录按钮清除关键词
-  $('.lt_history .icon_clear').on('tap', function () {
+    location.href = 'searchList.html?key='+ key;
+  }).on('tap','.lt_history .icon_clear',function () {
+    // 点击清除记录按钮清除关键词
     localStorage.clear();
     $('.lt_history').html(template('historyTemplate',{keyWord: getSearchData()}));
-  });
-
-  // 点击具体的关键词删除按钮
-  $('.lt_history .icon_delete').on('tap', function () {
+  }).on('tap','.lt_history .icon_delete', function () {
+    // 点击具体的关键词删除按钮
     var dataKey = $(this).parent().find('[data-key]').data('key');
     console.log(dataKey);
     removeSearchData(String(dataKey));
     $('.lt_history').html(template('historyTemplate',{keyWord: getSearchData()}));
-  });
-
-  // 点击历史关键词跳转
-  $('.lt_history [data-key]').on('tap', function () {
-    // window.location.href = 'searchList.html?' + $(this).data('key');
-  });
+  }).on('tap', '.lt_history [data-key]', function () {
+    // 点击历史关键词跳转
+    window.location.href = 'searchList.html?' + $(this).data('key');
+  })
 });
 // 获取搜索记录
 var getSearchData = function(){
