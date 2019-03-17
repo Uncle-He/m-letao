@@ -1,0 +1,70 @@
+/*一级分类*/
+.cate_left {
+  width: 90px;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+}
+.cate_left ul {
+  width: 100%;
+  list-style: none;
+  margin-top: 10px;
+}
+.cate_left ul li {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background-color: #f3f4f5;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+.cate_left ul li.now {
+  background-color: #006699;
+  border-right: none;
+}
+.cate_left ul li.now a {
+  color: #FFA500;
+}
+.cate_left ul li a {
+  display: block;
+  color: #333333;
+  font-size: 14px;
+}
+
+/*二级分类*/
+.cate_right {
+  overflow: hidden;
+  padding: 0 10px;
+}
+.cate_right ul {
+  width: 100%;
+}
+.cate_right ul li {
+  width: 33.333%;
+  float: left;
+  padding-top: 10px;
+}
+.cate_right ul li a {
+  display: block;
+  width: 100%;
+}
+.cate_right ul li a img {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+.cate_right ul li a p {
+  text-align: center;
+  color: #666;
+  padding: 5px 0;
+}
+
+
+
+
+
+
+
+
+
