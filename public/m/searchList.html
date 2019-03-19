@@ -29,7 +29,7 @@
   <section class="lt_content">
     <!--滑动区域-->
     <div class="lt_wrapper">
-      <div class="mui-scroll-wrapper">
+      <div id="refreshContainer" class="mui-scroll-wrapper">
         <div class="mui-scroll">
           <!--搜索输入区域-->
           <div class="lt_search">
@@ -41,79 +41,14 @@
           </div>
           <!--排序区域-->
           <div class="lt_order mui-clearfix">
-            <a class="now" href="javascript:;">上架时间<span class="fa fa-angle-down"></span></a>
-            <a href="javascript:;">价格<span class="fa fa-angle-down"></span></a>
-            <a href="javascript:;">销量<span class="fa fa-angle-down"></span></a>
-            <a href="javascript:;">折扣<span class="fa fa-angle-down"></span></a>
+            <a href="javascript:;" data-order="time">上架时间<span class="fa fa-angle-down"></span></a>
+            <a href="javascript:;" data-order="price">价格<span class="fa fa-angle-down"></span></a>
+            <a href="javascript:;" data-order="num">销量<span class="fa fa-angle-down"></span></a>
+            <a href="javascript:;" data-order="scale">折扣<span class="fa fa-angle-down"></span></a>
           </div>
           <!--商品区域-->
           <div class="lt_product">
-            <div class="product_item">
-              <a class="product_item_box" href="#">
-                <img src="images/product.jpg" alt="">
-                <p class="mui-ellipsis-2">adidas阿迪达斯 男士 场下休闲篮球鞋S83700</p>
-                <p>
-                  <span class="nowPrice">&yen;560.00</span>
-                  <span class="oldPrice">&yen;880.00</span>
-                </p>
-                <button class="button">立即购买</button>
-              </a>
-            </div>
-            <div class="product_item">
-              <a class="product_item_box" href="#">
-                <img src="images/product.jpg" alt="">
-                <p class="mui-ellipsis-2">adidas阿迪达斯 男士 场下休闲篮球鞋S83700</p>
-                <p>
-                  <span class="nowPrice">&yen;560.00</span>
-                  <span class="oldPrice">&yen;880.00</span>
-                </p>
-                <button class="button">立即购买</button>
-              </a>
-            </div>
-            <div class="product_item">
-              <a class="product_item_box" href="#">
-                <img src="images/product.jpg" alt="">
-                <p class="mui-ellipsis-2">adidas阿迪达斯 男士 场下休闲篮球鞋S83700</p>
-                <p>
-                  <span class="nowPrice">&yen;560.00</span>
-                  <span class="oldPrice">&yen;880.00</span>
-                </p>
-                <button class="button">立即购买</button>
-              </a>
-            </div>
-            <div class="product_item">
-              <a class="product_item_box" href="#">
-                <img src="images/product.jpg" alt="">
-                <p class="mui-ellipsis-2">adidas阿迪达斯 男士 场下休闲篮球鞋S83700</p>
-                <p>
-                  <span class="nowPrice">&yen;560.00</span>
-                  <span class="oldPrice">&yen;880.00</span>
-                </p>
-                <button class="button">立即购买</button>
-              </a>
-            </div>
-            <div class="product_item">
-              <a class="product_item_box" href="#">
-                <img src="images/product.jpg" alt="">
-                <p class="mui-ellipsis-2">adidas阿迪达斯 男士 场下休闲篮球鞋S83700</p>
-                <p>
-                  <span class="nowPrice">&yen;560.00</span>
-                  <span class="oldPrice">&yen;880.00</span>
-                </p>
-                <button class="button">立即购买</button>
-              </a>
-            </div>
-            <div class="product_item">
-              <a class="product_item_box" href="#">
-                <img src="images/product.jpg" alt="">
-                <p class="mui-ellipsis-2">adidas阿迪达斯 男士 场下休闲篮球鞋S83700</p>
-                <p>
-                  <span class="nowPrice">&yen;560.00</span>
-                  <span class="oldPrice">&yen;880.00</span>
-                </p>
-                <button class="button">立即购买</button>
-              </a>
-            </div>
+            <!--TODO-->
           </div>
         </div>
       </div>
@@ -127,8 +62,30 @@
     <a class="tab_user fa fa-user" href="user/index.html"><span>会员中心</span></a>
   </footer>
 </div>
+<script type="text/template" id="searchTemplate">
+<%for (var i = 0; i < data.length; i++) {%>
+  <%var item = data[i]%>
+  <div class="product_item">
+    <a class="product_item_box" href="product.html?productId=<%= item.id%>">
+      <%if(item.pic && item.pic[0]) {%>
+      <img src="<%= item.pic[0].picAddr%>" alt="">
+      <%} else {%>
+      <img src="images/none.png" alt="">
+      <%}%>
+      <p class="mui-ellipsis-2"><%= item.proName%></p>
+      <p>
+        <span class="nowPrice">&yen;<%= item.price%></span>
+        <span class="oldPrice">&yen;<%= item.oldPrice%></span>
+      </p>
+      <button class="button">立即购买</button>
+    </a>
+  </div>
+<%}%>
+</script>
 <script src="assets/mui/js/mui.min.js"></script>
 <script src="assets/zepto/zepto.min.js"></script>
+<script src="assets/artTemplate/template-native.js"></script>
+<script src="js/common.js"></script>
 <script src="js/searchList.js"></script>
 </body>
 </html>

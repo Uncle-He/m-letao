@@ -24,7 +24,6 @@ $(function ($) {
   }).on('tap','.lt_history .icon_delete', function () {
     // 点击具体的关键词删除按钮
     var dataKey = $(this).parent().find('[data-key]').data('key');
-    console.log(dataKey);
     removeSearchData(String(dataKey));
     $('.lt_history').html(template('historyTemplate',{keyWord: getSearchData()}));
   }).on('tap', '.lt_history [data-key]', function () {
