@@ -76,13 +76,13 @@ $(function () {
 
           if (data.success == true) {
             /*提示框提醒*/
-              mui.confirm('添加成功,去购物车看看', '温馨提示', ['是','否'], function(e) {
-                if (e.index == 0) {
-                  location.href = LT.cartUrl;
-                } else {
-                  // TODO
-                }
-              })
+            mui.confirm('添加成功,去购物车看看', '温馨提示', ['是','否'], function(e) {
+              if (e.index == 0) {
+                location.href = LT.cartUrl;
+              } else {
+                // TODO
+              }
+            })
           }
 
         }

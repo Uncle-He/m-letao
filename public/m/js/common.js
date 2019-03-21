@@ -51,6 +51,17 @@ LT.serialize2object = function (serializeStr) {
   arr.forEach(function (item, i) {
     var itemArr = item.split('=');
     obj[itemArr[0]] = itemArr[1];
-  })
+  });
+  return obj;
+};
+
+// 根据ID获取对应的数据
+LT.getItemById = function (arr,id) {
+  var obj = null;
+  arr.forEach(function (item, i) {
+    if (item.id == id) {
+      obj = item;
+    }
+  });
   return obj;
 };
