@@ -33,15 +33,15 @@ body{
 
 
 
-.cz_text{
+.lt_text{
   font-size: 12px;
   height: 20px;
   line-height: 20px;
 }
-.cz_text [type=checkbox]{
+.lt_text [type=checkbox]{
   vertical-align: middle;
 }
-.cz_text a{
+.lt_text a{
   float: right;
 }
 .bgg{
